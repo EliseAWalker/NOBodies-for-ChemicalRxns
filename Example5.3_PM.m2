@@ -59,17 +59,6 @@ latticeIndex = computeIndexSNF(basisV) -- returns 1
 ----------------------------------------------------------------------
 2! * kodairaDegree * NObodyVol / latticeIndex -- biii of 4
 
-
------Solving a General System-----
-----------------------------------
-complexR = CC[drop(gens R, -1)]
-complexBasisV = for i in basisV list sub(sub(i, s=>1_R), complexR)
-coefGeneralSystem = makeCoef(2, 4);
-generalSystem = for i in coefGeneralSystem list sum(apply(i, complexBasisV, (j,k)->j*k));
-sol = solveSystem(generalSystem) 
-#sol --7 solutions
-
-
 -----Computing the Base Locus-----
 ----------------------------------
 baseLocus = solveSystem(complexBasisV)
@@ -148,16 +137,6 @@ kodairaDegree = degreeMap phi --returns 1
 -----Computing the Birationally Invariant Self-Intersection Index-----
 ----------------------------------------------------------------------
 2! * kodairaDegree * NObodyVol -- biii of 6
-
-
------Solving a General System-----
-----------------------------------
-complexR = CC[drop(gens R, -1)]
-complexBasisV = for i in basisV list sub(sub(i, s=>1_R), complexR)
-coefGeneralSystem = makeCoef(2, #complexBasisV);
-generalSystem = for i in coefGeneralSystem list sum(apply(i, complexBasisV, (j,k)->j*k));
-sol = solveSystem(generalSystem) 
-#sol --7 solutions, one of which is in the base locus
 
 
 -----Computing the Base Locus-----
