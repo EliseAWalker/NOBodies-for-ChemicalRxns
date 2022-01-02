@@ -64,17 +64,10 @@ latticeIndex = computeIndexSNF(basisV) -- returns 1
 2! * kodairaDegree * NObodyVol / latticeIndex -- biii of 2
 
 
------Solving a General System-----
-----------------------------------
-complexR = CC[drop(gens R, -1)]
-complexBasisV = for i in basisV list sub(sub(i, s=>1_R), complexR)
-generalSystem = makeRandomSystem(complexBasisV);
-sol = solveSystem(generalSystem) 
-#sol 
-
-
 -----Computing the Base Locus-----
 ----------------------------------
+complexR = CC[drop(gens R, -1)];
+complexBasisV = for i in basisV list sub(sub(i, s=>1_R), complexR);
 baseLocus = solveSystem(complexBasisV)
 #baseLocus 
 
