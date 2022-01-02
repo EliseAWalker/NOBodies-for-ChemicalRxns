@@ -61,6 +61,8 @@ latticeIndex = computeIndexSNF(basisV) -- returns 1
 
 -----Computing the Base Locus-----
 ----------------------------------
+complexR = CC[drop(gens R, -1)];
+complexBasisV = for i in basisV list sub(sub(i, s=>1_R), complexR);
 baseLocus = solveSystem(complexBasisV)
 #baseLocus --3 solutions
 
@@ -68,6 +70,7 @@ baseLocus = solveSystem(complexBasisV)
 -----Comparing to Mixed Volume-----
 -----------------------------------
 -- The mixed volume of a general system pulled from vector space V is:
+generalSystem = makeRandomSystem(complexBasisV);
 mixedVolume(generalSystem) --returns 8
 -- The mixed volume of our original system is:
 mixedVolume(for i in system list sub(sub(i, s=>1_R), complexR)) --returns 4
@@ -141,6 +144,8 @@ kodairaDegree = degreeMap phi --returns 1
 
 -----Computing the Base Locus-----
 ----------------------------------
+complexR = CC[drop(gens R, -1)];
+complexBasisV = for i in basisV list sub(sub(i, s=>1_R), complexR);
 baseLocus = solveSystem(complexBasisV)
 #baseLocus --1 solution, (0,0)
 
@@ -148,6 +153,7 @@ baseLocus = solveSystem(complexBasisV)
 -----Comparing to Mixed Volume-----
 -----------------------------------
 -- The mixed volume of a general system pulled from vector space V is:
+generalSystem = makeRandomSystem(complexBasisV);
 mixedVolume(generalSystem) --returns 8
 -- The mixed volume of our original system is:
 mixedVolume(for i in system list sub(sub(i, s=>1_R), complexR)) --returns 4
